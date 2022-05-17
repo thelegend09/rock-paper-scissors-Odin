@@ -1,0 +1,113 @@
+
+:root {
+    --rich-black: #0a0a0aff;
+    --eerie-black: #1a181aff;
+    --davys-grey: #505050ff;
+    --persian-red: #d1342fff;
+    --black-olive: #434038ff;
+    --dutch-white: #eee3c1ff;
+
+}
+
+h1 {
+    font-family: "Roboto Flex";
+    padding: -20px;
+    color: var(--dutch-white);
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: 1000;
+    font-size: 100px;
+
+}
+
+h1.h1 {
+    font-weight: 100;
+    letter-spacing: 17px;
+    text-align: center;
+}
+
+
+h2 {
+    font-family: "Smooch";
+    font-weight: 900;
+    font-size: 90px;
+    color: var(--black-olive);
+    padding: 0;
+    padding-top: 20px;
+    margin: 0;
+    text-align: center;
+    
+}
+
+.buttons {
+    margin: 25px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    /* display: flex; */
+    /* text-align: center; */
+    background-color: var(--eerie-black)
+}
+
+button.active {
+    background-color: aqua;
+    font-weight: 900;
+}
+
+button {
+    text-transform: uppercase;
+    margin: 25px;
+    width: 200px;
+    text-align: center;
+    display: inline;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    /* border-radius: 8px; */
+    padding: 13px 23px;
+    border: 1px solid #222222;
+    background: var(--persian-red);
+    color: #222222;
+
+}
+
+body button:hover {
+    /* display: inline-block; */
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14px 24px;
+    border: none;
+    color: var(--persian-red);
+    outline-color: var(--rich-black);
+    background: var(--rich-black);
+    /* font-family: Smooch;
+    font-size: 30px;
+    letter-spacing: 5px; */
+}
+
+p {
+    font-family: "Roboto Flex";
+    color: var(--dutch-white);
+    text-align: center;
+}
+
+#win-lose-message {
+    color: var(--persian-red);
+    font-weight: 600;
+}
+
+#current-score {
+    padding-top: 25px;
+    font-size: large;
+}
