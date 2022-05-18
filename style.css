@@ -102,12 +102,28 @@ p {
     text-align: center;
 }
 
-#win-lose-message {
+.bottom {
+    display:flex;
+    align-items: stretch;
+}
+
+ body .bottom #win-lose-message {
     color: var(--persian-red);
     font-weight: 600;
+    font-family: "IBM Plex Mono";
+    background-color: var(var(--rich-black));
+    width: 300px;
+    text-align: left;
+    padding-right: 25px;
+    margin: 20px;
 }
 
 #current-score {
-    padding-top: 25px;
+    width: 300px;
+    padding-left: 25px;
+    /* padding-top: 25px; */
     font-size: large;
+    font-family: "IBM Plex Mono";
+    margin: 20px;
+    text-align: right;
 }

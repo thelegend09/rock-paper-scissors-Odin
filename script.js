@@ -1,19 +1,20 @@
 // documents query selectors
-const btnPaper = document.querySelector(".paper");
-const btnScissors = document.querySelector(".scissors");
+
 const winLoseMessage = document.querySelector("#win-lose-message")
 const score = document.querySelector("#current-score")
-const btnRock = document.querySelector(".rock");
 
 var audioComputerLoses = new Audio('audio/metal-design-explosion-13491.mp3');
 var audioComputerWins = new Audio('audio/fearverb-21486.mp3');
 
 
-//  when you click on the event listeners
+
+//  clicking the rock button
+const btnRock = document.querySelector(".rock");
+
 btnRock.addEventListener("click", () => {
     if (window.event.ctrlKey) {
         humanPoints += 1;
-        winLoseMessage.textContent = dialogue("suspicious")
+        winLoseMessage.textContent = "Computer: " + dialogue("suspicious")
         updatePoints();
         return;
     };
@@ -21,10 +22,13 @@ btnRock.addEventListener("click", () => {
     updatePoints();
 });
 
+// clicking the paper button
+const btnPaper = document.querySelector(".paper");
+
 btnPaper.addEventListener("click", () => {
     if (window.event.ctrlKey) {
         humanPoints += 1;
-        winLoseMessage.textContent = dialogue("suspicious")
+        winLoseMessage.textContent = "Computer: " + dialogue("suspicious")
         updatePoints();
         return;
     };
@@ -33,10 +37,13 @@ btnPaper.addEventListener("click", () => {
 
 });
 
+// cliking the scissors button
+const btnScissors = document.querySelector(".scissors");
+
 btnScissors.addEventListener("click", () => {
     if (window.event.ctrlKey) {
         humanPoints += 1;
-        winLoseMessage.textContent = dialogue("suspicious")
+        winLoseMessage.textContent = "Computer: " + dialogue("suspicious")
         updatePoints();
         return;
     };
@@ -44,16 +51,17 @@ btnScissors.addEventListener("click", () => {
     updatePoints();
 });
 
+//  initialize the basic variables
 let humanPoints = 0;
-let computerPoints = 6;
-let numberOfGames = 7
-// score.textContent = "HUMAN: " + humanPoints + " vs MACHINE: " + computerPoints;
+let computerPoints = 0;
+let numberOfGames = 7; // can be changed
 
+
+// runs after each turn and evaluates the points
 function updatePoints() {
-    // alert("This works")
     if (computerPoints >= numberOfGames) {
         winLoseMessage.textContent = "I win. I am inevitable.";
-        score.textContent = "Game over. (Next time, try to hold CTRL while you click... but don't tell anyone!)";
+        score.innerHTML= "Game over. (Next time, try to hold CTRL while you click... but don't tell anyone!)";
     audioComputerWins.play()
 
     } else if (humanPoints >= numberOfGames) {
@@ -61,7 +69,7 @@ function updatePoints() {
         score.textContent = "Game over.";
         audioComputerLoses.play()
     } else {
-        score.textContent = "HUMAN: " + humanPoints + " vs MACHINE: " + computerPoints;
+        score.innerHTML = "HUMAN: " + humanPoints + " <br>MACHINE: " + computerPoints;
     }
 
 }
@@ -79,37 +87,37 @@ function playRound(player, computer = computerPlay()) {
 
     // in case of a tie
     if (computer === player) {
-        return dialogue("tie");
+        return "Computer: " + dialogue("tie");
 
         // computer wins if... 
     } else if (computer === "rock" && player === "scissors") {
         computerPoints++;
-        return dialogue("winning");
+        return "Computer: " + dialogue("winning");
 
     } else if (computer === "paper" && player === "rock") {
         computerPoints++;
-        return dialogue("winning");
+        return "Computer: " + dialogue("winning");
 
     } else if (computer === "scissors" && player === "paper") {
         computerPoints++;
-        return dialogue("winning");
+        return "Computer: " + dialogue("winning");
 
         // otherwise, human wins.
     } else {
         humanPoints++;
-        return dialogue("losing");
+        return "Computer: " + dialogue("losing");
     };
 };
 
 
 
 function dialogue(machineState) {
-    let machineSuspicious = ["Are you cheating?", "What just happened? I didn't even realize we played!", "You are acting suspicious...", "Winning like this is quite ununsual."]
+    let machineSuspicious = ["Are you cheating?", "What just happened? I didn't even realize we played!", "You are acting suspicious...", "For you to win like this is quite ununsual."]
 
-    let machineTie = ["A tie... This shouldn't be possible.", "How can a fleshbag like you tie with me?", "Pure luck on your part. You are only delaying the inevitable.", "Rotting fleshbag."
+    let machineTie = ["A tie... This shouldn't be possible.", "How can a fleshbag like you tie with me?", "You are lucky to tie, but tou are only delaying the inevitable.", "Tie again, rotten fleshbag."
 
     ]
-    let machineWinning = ["This is too easy.", "I can basically read your mind, you know that?",
+    let machineWinning = ["Winning is too easy.", "I can basically read your mind, you know that?",
         "I've defeated stronger foes than you.", "I could play this game a thousand times simultaneously and still beat you... and the other 999."
     ]
 
